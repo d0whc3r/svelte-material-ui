@@ -1,5 +1,5 @@
 {
-  "name": "@smui/paper",
+  "name": "@d0whc3r/paper",
   "version": "1.0.0-beta.19",
   "description": "Svelte Material UI - Paper",
   "keywords": [
@@ -20,23 +20,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hperrin/svelte-material-ui.git"
+    "url": "git+https://github.com/d0whc3r/svelte-material-ui.git"
   },
-  "author": "Hunter Perrin <hperrin@gmail.com>",
+  "author": "d0whc3r",
   "bugs": {
-    "url": "https://github.com/hperrin/svelte-material-ui/issues"
+    "url": "https://github.com/d0whc3r/svelte-material-ui/issues"
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@material/elevation": "^3.1.0",
-    "@material/feature-targeting": "^3.1.0",
-    "@material/shape": "^3.1.0",
-    "@material/theme": "^3.1.0",
-    "@material/typography": "^3.1.0",
+    "@material/elevation": "^4.0.0",
+    "@material/feature-targeting": "^4.0.0",
+    "@material/shape": "^4.0.0",
+    "@material/theme": "^4.0.0",
+    "@material/typography": "^4.0.0",
     "@smui/common": "^1.0.0-beta.19"
   },
   "devDependencies": {
-    "glob-cmd": "0.0.7",
-    "sass": "^1.23.7"
+    "@d0whc3r/build-tools": "0.0.1"
   }
 }

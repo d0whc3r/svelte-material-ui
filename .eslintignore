@@ -1,0 +1,9 @@
+node_modules
+coverage
+dist
+dist_electron
+packages/electron-app/public
+*.config.js
+tsconfig*.json
+jest.*.js
+documentation/

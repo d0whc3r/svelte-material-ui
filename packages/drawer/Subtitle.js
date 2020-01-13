@@ -1,5 +1,5 @@
-import {classAdderBuilder} from '@smui/common/classAdderBuilder.js';
-import H2 from '@smui/common/H2.svelte';
+import {classAdderBuilder} from '@d0whc3r/common/classAdderBuilder.js';
+import H2 from '@d0whc3r/common/H2.svelte';
 
 export default classAdderBuilder({
   class: 'mdc-drawer__subtitle',

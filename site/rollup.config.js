@@ -1,4 +1,4 @@
-import path  from 'path';
+import path from 'path';
 import alias from 'rollup-plugin-alias';
 import resolve from 'rollup-plugin-node-resolve';
 import replace from 'rollup-plugin-replace';
@@ -14,13 +14,14 @@ const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
-const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning);
+const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' &&
+  /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning);
 const dedupe = importee => importee === 'svelte' || importee.startsWith('svelte/');
 const aliases = () => ({
   resolve: ['.svelte', '.js', '.scss', '.css'],
-  entries:[
-    {find:/^@smui\/([^\/]+)$/, replacement: path.resolve(__dirname, '..', 'packages', '$1', 'index.js')},
-    {find:/^@smui\/([^\/]+)\/(.*)$/, replacement: path.resolve(__dirname, '..', 'packages', '$1', '$2')}
+  entries: [
+    { find: /^@smui\/([^\/]+)$/, replacement: path.resolve(__dirname, '..', 'packages', '$1', 'index.js') },
+    { find: /^@smui\/([^\/]+)\/(.*)$/, replacement: path.resolve(__dirname, '..', 'packages', '$1', '$2') }
   ]
 });
 const postcssOptions = () => ({
@@ -28,7 +29,8 @@ const postcssOptions = () => ({
   extract: false,
   minimize: true,
   use: [
-    ['sass', {
+    [
+      'sass', {
       includePaths: [
         './src/theme',
         './node_modules',
@@ -69,13 +71,15 @@ export default {
         runtimeHelpers: true,
         exclude: ['node_modules/@babel/**'],
         presets: [
-          ['@babel/preset-env', {
+          [
+            '@babel/preset-env', {
             targets: '> 0.25%, not dead'
           }]
         ],
         plugins: [
           '@babel/plugin-syntax-dynamic-import',
-          ['@babel/plugin-transform-runtime', {
+          [
+            '@babel/plugin-transform-runtime', {
             useESModules: true
           }]
         ]
@@ -86,7 +90,7 @@ export default {
       })
     ],
 
-    onwarn,
+    onwarn
   },
 
   server: {
@@ -113,7 +117,7 @@ export default {
       require('module').builtinModules || Object.keys(process.binding('natives'))
     ),
 
-    onwarn,
+    onwarn
   },
 
   serviceworker: {
@@ -129,6 +133,6 @@ export default {
       !dev && terser()
     ],
 
-    onwarn,
+    onwarn
   }
 };

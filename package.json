@@ -1,7 +1,17 @@
 {
-  "name": "svelte-material-ui",
+  "name": "root",
+  "private": true,
   "version": "1.0.0-beta.19",
   "description": "Svelte Material UI Components",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d0whc3r/svelte-material-ui.git"
+  },
+  "author": "d0whc3r",
+  "bugs": {
+    "url": "https://github.com/d0whc3r/svelte-material-ui/issues"
+  },
   "keywords": [
     "svelte",
     "svelte3",
@@ -11,68 +21,86 @@
     "svelte-components",
     "sveltejs"
   ],
+  "workspaces": [
+    "packages/*",
+    "build/*"
+  ],
   "scripts": {
-    "pages": "git checkout site -- && git rebase master && cd site && npm install && npm run export && cd .. && git add . && git commit -m 'chore: update built files' && git push origin $(git subtree split --prefix site/dist site):gh-pages --force && git reset --hard HEAD^ && git push --force origin site && git checkout master",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "files": [],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hperrin/svelte-material-ui.git"
-  },
-  "author": "Hunter Perrin <hperrin@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/hperrin/svelte-material-ui/issues"
-  },
-  "license": "Apache-2.0",
-  "dependencies": {
-    "@smui/button": "1.0.0-beta.19",
-    "@smui/card": "1.0.0-beta.19",
-    "@smui/checkbox": "1.0.0-beta.19",
-    "@smui/chips": "1.0.0-beta.19",
-    "@smui/data-table": "1.0.0-beta.19",
-    "@smui/dialog": "1.0.0-beta.19",
-    "@smui/drawer": "1.0.0-beta.19",
-    "@smui/fab": "1.0.0-beta.19",
-    "@smui/floating-label": "1.0.0-beta.19",
-    "@smui/form-field": "1.0.0-beta.19",
-    "@smui/icon-button": "1.0.0-beta.19",
-    "@smui/image-list": "1.0.0-beta.19",
-    "@smui/line-ripple": "1.0.0-beta.19",
-    "@smui/linear-progress": "1.0.0-beta.19",
-    "@smui/list": "1.0.0-beta.19",
-    "@smui/menu": "1.0.0-beta.19",
-    "@smui/menu-surface": "1.0.0-beta.19",
-    "@smui/notched-outline": "1.0.0-beta.19",
-    "@smui/paper": "1.0.0-beta.19",
-    "@smui/radio": "1.0.0-beta.19",
-    "@smui/ripple": "1.0.0-beta.19",
-    "@smui/select": "1.0.0-beta.19",
-    "@smui/slider": "1.0.0-beta.19",
-    "@smui/snackbar": "1.0.0-beta.19",
-    "@smui/switch": "1.0.0-beta.19",
-    "@smui/tab": "1.0.0-beta.19",
-    "@smui/tab-bar": "1.0.0-beta.19",
-    "@smui/tab-indicator": "1.0.0-beta.19",
-    "@smui/tab-scroller": "1.0.0-beta.19",
-    "@smui/textfield": "1.0.0-beta.19",
-    "@smui/top-app-bar": "1.0.0-beta.19"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
-    "husky": "^3.1.0",
-    "lerna": "^3.19.0",
-    "svelte": "^3.16.4"
+    "pages": "git checkout site -- && git rebase master && cd site && yarn && yarn export && cd .. && git add . && git commit -m 'chore: update built files' && git push origin $(git subtree split --prefix site/dist site):gh-pages --force && git reset --hard HEAD && git push --force origin site && git checkout master",
+    "lerna:run": "yarn lerna run --stream",
+    "test": "yarn lerna:run test",
+    "build": "yarn lerna:run build",
+    "clean": "lerna clean --yes && yarn clean:packages && rm -fr node_modules report/*.{xml,json} report/coverage lerna-debug.log package-lock.json yarn.lock",
+    "clean:packages": "lerna exec -- rm -fr node_modules www dist .rpt2_cache package-lock.json yarn.lock docs",
+    "eslint": "eslint --ext .svelte,.js,.ts packages/electron-app/src packages/electron-app/test",
+    "eslint:fix": "yarn lint --fix",
+    "format": "pretty-quick --write {src,test}/**/{*.svelte,*.js,*.ts}",
+    "--- BUTTON ---": "---------------------------------------",
+    "button:build": "yarn lerna:run --scope @d0whc3r/button build"
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "lint-staged": {
+    "{src,test}/**/*.{ts,js,json,scss,html,svelte}|!node_modules": [
+      "yarn format"
+    ]
+  },
+  "files": [],
+  "devDependencies": {
+    "@babel/core": "7.8.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.8.0",
+    "@babel/plugin-syntax-import-meta": "7.8.0",
+    "@babel/plugin-transform-modules-commonjs": "7.8.0",
+    "@babel/plugin-transform-regenerator": "7.8.0",
+    "@babel/plugin-transform-runtime": "7.8.0",
+    "@babel/plugin-transform-strict-mode": "7.8.0",
+    "@babel/polyfill": "7.8.0",
+    "@babel/preset-env": "7.8.2",
+    "@babel/register": "7.8.0",
+    "@commitlint/cli": "8.3.4",
+    "@commitlint/config-conventional": "8.3.4",
+    "@pyoner/svelte-types": "3.4.4-2",
+    "@rollup/plugin-node-resolve": "7.0.0",
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/svelte": "1.11.0",
+    "@types/jest": "24.0.25",
+    "autoprefixer": "9.7.3",
+    "babel-eslint": "10.0.3",
+    "babel-jest": "24.9.0",
+    "babel-plugin-add-module-exports": "1.0.2",
+    "babel-plugin-inline-dotenv": "1.5.0",
+    "babel-plugin-transform-import-css": "1.0.0-alpha.11",
+    "builtin-modules": "3.1.0",
+    "core-js": "3.6.3",
+    "cross-env": "6.0.3",
+    "cssnano": "4.1.10",
+    "dts-bundle-generator": "3.3.1",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.9.0",
+    "eslint-plugin-jest": "23.6.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-sonarjs": "0.5.0",
+    "eslint-plugin-svelte3": "2.7.3",
+    "husky": "4.0.7",
+    "jest": "24.9.0",
+    "jest-junit": "10.0.0",
+    "jest-transform-svelte": "2.1.0",
+    "lerna": "3.20.2",
+    "lint-staged": "9.5.0",
+    "node-sass": "4.13.0",
+    "postcss-preset-env": "6.7.0",
+    "prettier": "1.19.1",
+    "prettier-eslint": "9.0.1",
+    "prettier-plugin-svelte": "0.7.0",
+    "pretty-quick": "2.0.1",
+    "regenerator-runtime": "0.13.3",
+    "rimraf": "3.0.0",
+    "rollup": "1.29.0",
+    "ts-jest": "24.3.0",
+    "typescript": "3.7.4"
   }
 }

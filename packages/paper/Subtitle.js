@@ -1,5 +1,5 @@
-import {classAdderBuilder} from '@smui/common/classAdderBuilder.js';
-import H6 from '@smui/common/H6.svelte';
+import {classAdderBuilder} from '@d0whc3r/common/classAdderBuilder.js';
+import H6 from '@d0whc3r/common/H6.svelte';
 
 export default classAdderBuilder({
   class: 'smui-paper__subtitle',

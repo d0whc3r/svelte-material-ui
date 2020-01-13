@@ -1,0 +1,52 @@
+{
+  "name": "@d0whc3r/svelte-material-ui",
+  "version": "1.0.0-beta.19",
+  "description": "Svelte Material UI Components",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d0whc3r/svelte-material-ui.git"
+  },
+  "author": "d0whc3r",
+  "bugs": {
+    "url": "https://github.com/d0whc3r/svelte-material-ui/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [],
+  "dependencies": {
+    "@smui/button": "1.0.0-beta.19",
+    "@smui/card": "1.0.0-beta.19",
+    "@smui/checkbox": "1.0.0-beta.19",
+    "@smui/chips": "1.0.0-beta.19",
+    "@smui/data-table": "1.0.0-beta.19",
+    "@smui/dialog": "1.0.0-beta.19",
+    "@smui/drawer": "1.0.0-beta.19",
+    "@smui/fab": "1.0.0-beta.19",
+    "@smui/floating-label": "1.0.0-beta.19",
+    "@smui/form-field": "1.0.0-beta.19",
+    "@smui/icon-button": "1.0.0-beta.19",
+    "@smui/image-list": "1.0.0-beta.19",
+    "@smui/line-ripple": "1.0.0-beta.19",
+    "@smui/linear-progress": "1.0.0-beta.19",
+    "@smui/list": "1.0.0-beta.19",
+    "@smui/menu": "1.0.0-beta.19",
+    "@smui/menu-surface": "1.0.0-beta.19",
+    "@smui/notched-outline": "1.0.0-beta.19",
+    "@smui/paper": "1.0.0-beta.19",
+    "@smui/radio": "1.0.0-beta.19",
+    "@smui/ripple": "1.0.0-beta.19",
+    "@smui/select": "1.0.0-beta.19",
+    "@smui/slider": "1.0.0-beta.19",
+    "@smui/snackbar": "1.0.0-beta.19",
+    "@smui/switch": "1.0.0-beta.19",
+    "@smui/tab": "1.0.0-beta.19",
+    "@smui/tab-bar": "1.0.0-beta.19",
+    "@smui/tab-indicator": "1.0.0-beta.19",
+    "@smui/tab-scroller": "1.0.0-beta.19",
+    "@smui/textfield": "1.0.0-beta.19",
+    "@smui/top-app-bar": "1.0.0-beta.19",
+    "svelte": "3.16.7"
+  }
+}

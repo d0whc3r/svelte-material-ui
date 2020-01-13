@@ -1,0 +1,54 @@
+{
+  "name": "@d0whc3r/build-tools",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Build Tools",
+  "keywords": [
+    "build",
+    "dependencies"
+  ],
+  "author": "d0whc3r",
+  "license": "MIT",
+  "main": "dist/build-tools.cjs.js",
+  "module": "dist/build-tools.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run clean && rollup -c",
+    "dts": "dts-bundle-generator --config dts-bundle-generator.json",
+    "clean": "rimraf dist .rpt2_cache"
+  },
+  "dependencies": {
+    "@rollup/plugin-alias": "3.0.0",
+    "@rollup/plugin-commonjs": "11.0.1",
+    "@rollup/plugin-json": "4.0.1",
+    "@rollup/plugin-node-resolve": "7.0.0",
+    "@rollup/plugin-typescript": "2.1.0",
+    "builtin-modules": "3.1.0",
+    "core-js": "3.6.3",
+    "dts-bundle-generator": "3.3.1",
+    "rollup": "1.29.0",
+    "rollup-plugin-babel": "4.3.3",
+    "rollup-plugin-css-porter": "1.0.2",
+    "rollup-plugin-node-builtins": "2.1.2",
+    "rollup-plugin-node-globals": "1.4.0",
+    "rollup-plugin-node-polyfills": "0.2.1",
+    "rollup-plugin-postcss": "2.0.3",
+    "rollup-plugin-scss": "2.1.0",
+    "rollup-plugin-svelte": "5.1.1",
+    "rollup-plugin-terser": "5.2.0",
+    "sass": "1.24.4",
+    "svelte": "3.16.7",
+    "svelte-preprocess": "3.3.0",
+    "typescript": "3.7.4"
+  },
+  "devDependencies": {
+    "@types/rollup-plugin-json": "3.0.2",
+    "@types/rollup-plugin-node-builtins": "2.1.1",
+    "@types/rollup-plugin-node-globals": "1.4.0",
+    "@types/rollup-plugin-postcss": "2.0.0",
+    "find-node-modules": "2.0.0"
+  }
+}

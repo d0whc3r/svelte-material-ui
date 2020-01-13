@@ -1,5 +1,5 @@
-import {classAdderBuilder} from '@smui/common/classAdderBuilder.js';
-import Footer from '@smui/common/Footer.svelte';
+import {classAdderBuilder} from '@d0whc3r/common/classAdderBuilder.js';
+import Footer from '@d0whc3r/common/Footer.svelte';
 
 export default classAdderBuilder({
   class: 'mdc-dialog__actions',

@@ -1,5 +1,5 @@
 {
-  "name": "@smui/common",
+  "name": "@d0whc3r/common",
   "version": "1.0.0-beta.19",
   "description": "Svelte Material UI - Common",
   "keywords": [
@@ -19,14 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hperrin/svelte-material-ui.git"
+    "url": "git+https://github.com/d0whc3r/svelte-material-ui.git"
   },
-  "author": "Hunter Perrin <hperrin@gmail.com>",
+  "author": "d0whc3r",
   "bugs": {
-    "url": "https://github.com/hperrin/svelte-material-ui/issues"
+    "url": "https://github.com/d0whc3r/svelte-material-ui/issues"
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "svelte": "^3.0"
+    "svelte": "^3.16"
   }
 }
